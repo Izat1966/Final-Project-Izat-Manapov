@@ -15,6 +15,8 @@ struct Event {
     string date;
     string time;
     string location;
+    string extra;
+    bool IsExtraExists;
 };
 
 void displayEvent(const Event& event) {
@@ -22,6 +24,9 @@ void displayEvent(const Event& event) {
     cout << "Date: " << event.date << endl;
     cout << "Time: " << event.time << endl;
     cout << "Location: " << event.location << endl;
+    if (event.IsExtraExists) {
+      cout << "Extra Details: " << event.extra <<endl;
+    }
 }
 
 void addEvent(Event& event) {
@@ -33,6 +38,18 @@ void addEvent(Event& event) {
     getline(cin, event.time);
     cout << "Enter event location: ";
     getline(cin, event.location);
+
+    char anss;
+    cout << "Do you have some extra details ? Y/N: ";
+    cin >> anss;
+    cin.ignore();
+    if (anss == 'Y' || anss == 'y') {
+      cout << "Enter event extra: ";
+      getline(cin, event.extra);
+      event.IsExtraExists = true;
+    }else {
+      event.IsExtraExists = false;
+    }
 }
 
 int main() {
