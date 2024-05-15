@@ -43,7 +43,7 @@ int main() {
         addEvent(EventsOfUsers);
         cout << "\nEvent Details:\n";
         displayEvent(EventsOfUsers);
-        cout << "Do you want to add one more time ? Y/N: ";
+        cout << "\nDo you want to add one more time ? Y/N: ";
         cin >> ans;
         cin.ignore();
         
